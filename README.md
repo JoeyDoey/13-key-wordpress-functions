@@ -2,7 +2,7 @@
 ==========================
 
 <p>
-  After a few years (or even month, really) of designing and developing WordPress themes, especially for clients, you start to realize that a lot of the functionality can be standardized or distilled down into a "starter theme or kit". 
+  After a few years (or even months, really) of designing and developing WordPress themes, especially for clients, you start to realize that a lot of the functionality can be standardized or distilled down into a "starter theme or kit". 
   This helps get the development process started and moving along apace. 
 </p>
 
@@ -47,8 +47,8 @@
 <pre><code>if ( function_exists( 'register_nav_menus' ) ) {
 	register_nav_menus(
 		array(
-		  'main_menu' =&gt; __( 'Main Menu', 'cake' ),
-		  'secondary_menu' =&gt; __( ''Secondary Menu', 'cake' ),
+		  'main_menu' =&gt; __( 'Main Menu', 'keyfunctions' ),
+		  'secondary_menu' =&gt; __( ''Secondary Menu', 'keyfunctions' ),
 		)
 	);
 }</code></pre>
@@ -92,9 +92,9 @@ add_image_size( 'large', 960, '' );</code></pre>
 <h2>Attachment Display Settings</h2>
 <pre><code>// show our custom image sizes when inserting media
 function keyfunctions_show_image_sizes($sizes) {
-    $sizes['regular'] = __( 'Our Regular Size', 'cake' );
-    $sizes['medium'] = __( 'Our Medium Size', 'cake' );
-    $sizes['large'] = __( 'Our Large Size', 'cake' );
+    $sizes['regular'] = __( 'Our Regular Size', 'keyfunctions' );
+    $sizes['medium'] = __( 'Our Medium Size', 'keyfunctions' );
+    $sizes['large'] = __( 'Our Large Size', 'keyfunctions' );
     return $sizes;
 }
 add_filter('image_size_names_choose', 'keyfunctions_show_image_sizes');</code></pre>
@@ -158,8 +158,8 @@ add_filter('excerpt_more', 'new_excerpt_more');</code></pre>
 	if ( $wp_query-&gt;max_num_pages &gt; 1 ) : ?&gt;
 		&lt;nav id="&lt;?php echo $nav_id; ?&gt;" class="content_nav clearfix"&gt;
 			&lt;ul&gt;
-				&lt;li class="nextPost"&gt;&lt;?php previous_posts_link( __( '&larr; newer ', 'cake' ) ); ?&gt;&lt;/li&gt;
-				&lt;li class="prevPost"&gt;&lt;?php next_posts_link( __( 'older &rarr;', 'cake' ) ); ?&gt;&lt;/li&gt;
+				&lt;li class="nextPost"&gt;&lt;?php previous_posts_link( __( '&larr; newer ', 'keyfunctions' ) ); ?&gt;&lt;/li&gt;
+				&lt;li class="prevPost"&gt;&lt;?php next_posts_link( __( 'older &rarr;', 'keyfunctions' ) ); ?&gt;&lt;/li&gt;
 			&lt;/ul&gt;					
 		&lt;/nav&gt;
 	&lt;?php endif;
