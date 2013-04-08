@@ -1,0 +1,418 @@
+/*
+Theme Name: Key Functions
+Theme URI: http://nyaggah.com
+Author: Joe Nyaggah
+Author URI: http://nyaggah.com/
+Description: This theme nails down 13 key WordPress functions that'll help get your development process started and moving along apace.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, gray, white, one-column, two-columns, right-sidebar, flexible-width, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
+Text Domain: pvj
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/*
+---------------------------
+import some css files 
+(demo purposes only)
+---------------------------
+*/
+@import url('css/html5-boilerplate.css');
+@import url('css/normalize.min.css');
+@import url('css/typography.css');
+
+
+
+/*
+---------------------------
+general wordpress classes
+---------------------------
+*/
+
+/* Alignment Classes: */
+.aligncenter {
+	text-align: center;
+	margin: auto;
+}
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 30px;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 30px;
+}
+/* Caption Related Classes: */
+.wp-caption {
+	padding: 2px;
+	text-align: center;
+	border: 1px solid #AAA;
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+			border-radius: 3px;
+}
+.wp-caption-text {
+	text-align: center;
+}
+.gallery-caption {
+	text-align: center;
+}
+/* Post Classes: */
+.sticky {}
+/* Comment Classes: */
+.bypostauthor {}
+
+/*gallery re-style*/
+.gallery img {
+	padding: 5px;
+	border: 2px solid #000!important;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+			border-radius: 5px;
+}
+.gallery img:hover {
+	border-color: #665395!important;
+}
+/*
+---------------------------
+suggested classes if defining
+content_width
+---------------------------
+*/
+.size-auto, 
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+
+
+
+
+/*
+---------------------------
+general link style
+---------------------------
+*/
+
+a:link, 
+a:visited  { 
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+a:hover, 
+a:active { 
+	color: #f66;
+	text-decoration: none;
+}
+.mainContent a { 
+	color: #000;
+	border-bottom: 1px solid #EEE;
+	padding-bottom: 1px;
+}
+.mainContent a:hover { 
+	color: #F66;
+	border-bottom: 1px solid #F66;
+}
+
+a img { border:0 } /*IE shenanigans*/
+a img {
+	-webkit-transition: all 0.3s ease-in-out; 
+	   -moz-transition: all 0.3s ease-in-out;
+}
+a img:hover {
+	-webkit-transition-timing-function: ease-out;
+	border-color: #555;	
+}
+
+a, a img {
+	-webkit-transition: all 0.3s ease-in-out; 
+	   -moz-transition: all 0.3s ease-in-out;
+}
+a:hover, img:hover {
+	-webkit-transition-timing-function: ease-out;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+
+
+
+
+/*
+---------------------------
+demo layout and structure
+---------------------------
+*/
+body {
+	background: #FFF;
+	color: #555;
+	font: 300 100%/160% "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	border-bottom: 1px solid #EEE;
+}
+
+/*
+---------------------------
+site title & tagline
+---------------------------
+*/
+.header hgroup {
+	display: table;
+	float: left;
+}
+
+/*
+.header hgroup h1 {
+	display: table;
+	font-size: 183%;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0;
+	line-height: 100%;
+	letter-spacing: 2px;
+}
+.header hgroup h2 {
+	color: rgba(0,0,0,.5);
+	font-size: 85%;
+	text-transform: uppercase;
+	padding: 0;
+	line-height: 100%;
+}
+*/
+.header hgroup h1 {
+	margin: 0;
+	padding: 0;
+	line-height: 100%;
+}
+
+.header hgroup h2 {
+	color: rgba(0,0,0,.5);
+	font-size: 150%;
+	font-weight: 300;
+	margin: 0;
+	padding: 0;
+}
+
+/*
+---------------------------
+header Nav
+---------------------------
+*/
+.header nav {
+	float: right;
+}
+.header nav ul {
+	list-style: circle;
+}
+.header nav ul li {
+	display: inline;
+}
+.header nav li a {
+	padding: 0 1em;
+}
+
+
+.body_content {
+	padding: 2em;
+	box-sizing: border-box;
+}
+.main_content {
+	float: left;
+	width: 55%;
+	border-right: 1px solid #EEE;
+}
+.inner {
+	padding: 2em;
+}
+.main_content article {
+	margin: 0 0 1em 0;
+	padding: 0 0 1em 0;
+	border-bottom: 1px solid #EEE;
+}
+.main_content .featured_image {
+	float: left;
+	margin: 0 2em 2em 0;
+}
+.main_content .featured_image img {
+	padding: 1em;
+	border: 1px solid #EEE;
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+			border-radius: 50%;
+}
+.singular_thumbnail {
+	display: table;
+	margin: 2em 0;
+	width: 100%;
+}
+.singular_thumbnail img {
+	width: 100%;
+}
+.sidebar {
+	float: right;
+	width: 40%;
+}
+
+dl.meta_data {
+	display: table;
+	font-size: 90%;
+/* 	line-height: 120%; */
+	margin: 2em 0;
+	width: 100%;
+}
+.meta_data dt {
+	color: #999999;
+	display: inline-block;
+	font-weight: lighter;
+	margin: 0;
+/* 	padding: 0 10px 0 0; */
+	text-align: right;
+}
+
+.meta_data dd {
+	color: #333333;
+	display: inline;
+	font-weight: lighter;
+	margin: 0;
+	padding: 0 0 0 .5em;
+/* 	padding: 2px 0 5px 0; */
+}
+
+.meta_data dd::after {
+	color: #999999;
+	content: "/";
+	padding: 0 1em;
+}
+.meta_data dd:last-child::after {
+	content: "";
+}
+
+
+.sidebar aside {
+	margin: 0 0 2em 0;
+	padding: 0 0 2em 0;
+	border-bottom: 1px solid #EEE;
+}
+
+
+/*
+---------------------------
+single page prev/next nav
+---------------------------
+*/
+#single_nav {
+	border-bottom: 1px solid #DDD;
+	margin: 0 0 2em 0;
+	padding: 0 0 1em;
+}
+#single_nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+
+/*
+---------------------------
+general form styles
+---------------------------
+*/
+textarea,input {
+	font: 300 14px/27px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+	display: block;
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 5px;
+	outline: none;
+	max-width: 100%;
+	width: 100%;
+	border: 1px solid #BBBDBF;
+	-webkit-transition: all 0.3s ease-in-out;
+	   -moz-transition: all 0.3s ease-in-out;	
+			transition: all 0.3s ease-in-out;
+}
+input[type="checkbox"], 
+input[type="radio"] {
+	width: auto;
+}
+textarea:focus,
+input:focus {
+	border: 1px solid #444;
+}
+		
+
+input[type=submit] {
+	background: #222;
+	display: table;
+	width: auto;
+	color: #FFF;
+	padding: 4.5px 15px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border: none;
+	
+}
+input[type=submit]:hover {
+	background: #F66;
+}
+
+.error {
+	color: #F66;
+}
+input.error {
+	border-color: #F66;
+}
+
+form .halfWidth {
+	width: 45%;
+}
+
+/*
+search input
+---------------------------
+---------------------------
+*/
+.search_form input[type=text] {
+	font: 300 14px/27px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+	background: #FFF;
+	float: left;
+	min-height: 27px;
+	width: 60%!important;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 4px;
+	border: none;
+	background: #FFF;
+	color: #999;
+/*
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+*/
+	border: 1px solid #BBBDBF;
+}
+
+
+
+* {
+	box-sizing: border-box;
+}

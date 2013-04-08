@@ -1,0 +1,96 @@
+@charset "UTF-8";
+/*
+Stylesheet:	   Typography
+Version:       1.0
+Updated:  	   April 08, 2013	
+*/
+
+/*
+HEADINGS
+---------------------------
+*/
+h1, h2 ,h3, h4, h5, h6 {
+	line-height: 130%;
+	margin: 0 0 0.2em 0;
+	padding: 0;
+}
+
+h1 {
+	display: table;
+	font-size: 400%;
+	font-weight: 900;
+}
+h2 {
+	font-size: 200%;
+/* 	font-weight: 300; */
+}
+
+h3 {
+	color: rgba(33, 33, 33,0.4);
+	font-size: 160%;
+	font-weight: 300;
+}
+
+h4 {
+	font-size: 140%;
+}
+
+h5 {
+	font-size: 115%;
+}
+h6 {
+	font-size: 100%;
+}
+
+/*
+PARAGRAPHS
+---------------------------
+*/
+p {
+	margin: 0 0 1em 0;
+	padding: 0;
+}
+
+p a {
+	font-weight: bolder;
+	padding-bottom: 0.10em;
+	border-bottom: 1px solid #CCC;
+}
+
+article p:nth-of-type(1)::first-letter {
+	color: #F66;
+	float: left;
+	font-weight: bold;
+	font-size: 330%;
+	line-height: 95%;
+	padding-right: .2em;
+	text-transform: uppercase;
+}
+
+/*
+BLOCKQUOTES
+---------------------------
+*/
+blockquote {
+	color: #999;
+	font-size: 150%;
+	margin: 2em 0;
+	padding: 0 0 0 .5em;
+	border-left: 5px solid #DDD;
+}
+blockquote p:nth-of-type(1)::first-letter {
+	color: inherit;
+	float: none;
+	font-weight: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	padding-right: inherit;
+	text-transform: none;
+}
+
+cite {
+	display: block;
+	font-size: 80%;
+	font-style: normal;
+	color: #F66;
+}
