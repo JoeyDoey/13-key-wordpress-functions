@@ -106,9 +106,9 @@ add_filter('image_size_names_choose', 'keyfunctions_show_image_sizes');</code></
 add_theme_support( 'automatic-feed-links' );</code></pre>
 
 <h2>Load Text Domain (translation ready)</h2>
-<pre><code>add_action('after_setup_theme', 'my_theme_setup');
-function my_theme_setup(){
-    load_theme_textdomain('my_theme', get_template_directory() . '/languages');
+<pre><code>add_action('after_setup_theme', 'keyfunctions_setup');
+function keyfunctions_setup(){
+    load_theme_textdomain('keyfunctions', get_template_directory() . '/languages');
 }</code></pre>
 
 
@@ -133,7 +133,7 @@ function my_theme_setup(){
 <h2>Dynamic Sidebar(s)</h2>
 <pre><code>if(function_exists('register_sidebar')){
 	register_sidebar(array(
-		'name' =&gt; 'Main Sidebar',
+		'name' =&gt; __( 'Main Sidebar', 'keyfunctions' ),
 		'before_widget' =&gt; '&lt;aside id="%1$s" class="widget %2$s"&gt;',
 		'after_widget' =&gt; '&lt;/aside&gt;',
 		'before_title' =&gt; '&lt;h3&gt;',
