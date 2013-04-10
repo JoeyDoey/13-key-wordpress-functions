@@ -243,51 +243,49 @@ function keyfunctions_single_nav( $nav_id ) {
  * =======================================================================================================================================
  * REGISTER & ENQUEUE SCRIPTS
  * =======================================================================================================================================
- * with this function with both register and enque our scripts (making sure to deregister jQuery in admin pages).
+ * with this function with both register and enqueue our scripts (making sure to deregister jQuery in admin pages).
  * For performance, unless otherwise desired, load javascripts in footer. In this case, modernizr is the only js file
  * loaded in the head.
 */
 
 function keyfunctions_scripts_and_styles() {
-    if (!is_admin()) {
 
-		// register and enque modernizr script (in head)
-		// no depency specified
-		wp_register_script('modernizr',
-			get_template_directory_uri() . '/javascripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js', '2.6.2', false);
-		wp_enqueue_script('modernizr');
-		
+	// register and enqueue modernizr script (in head)
+	// no depency specified
+	wp_register_script('modernizr',
+		get_template_directory_uri() . '/javascripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js', '2.6.2', false);
+	wp_enqueue_script('modernizr');
+	
 
-		// register and enque jQuery
-		wp_deregister_script('jquery');
-			wp_register_script('jquery', get_template_directory_uri() . '/javascripts/vendor/jquery-1.9.1.min.js', false, '1.9.1', true);
-		wp_enqueue_script('jquery');
-		
-		
-		// register and enque the plugins.js file 
-		// it depends on jQuery and is loaded in the footer
-		wp_register_script('plugins',
-			get_template_directory_uri() . '/javascripts/plugins.js', '1.0', true, array('jquery') );
-		wp_enqueue_script('plugins');
-		
-		
-		// register and enque main.js site-wide javascript behaviors file
-		// it depends on jQuery and is loaded in the footer
-		wp_register_script('main',
-			get_template_directory_uri() . '/javascripts/main.js', '1.0', true, array('jquery') );
-		wp_enqueue_script('main');
-		
-    }
-    
-	// Loads our main stylesheet.
-	wp_enqueue_style( 'keyfunctions-style', get_stylesheet_uri() );
-
-    
+	// register and enqueue jQuery
+	wp_deregister_script('jquery');
+		wp_register_script('jquery', get_template_directory_uri() . '/javascripts/vendor/jquery-1.9.1.min.js', false, '1.9.1', true);
+	wp_enqueue_script('jquery');
+	
+	
+	// register and enqueue the plugins.js file 
+	// it depends on jQuery and is loaded in the footer
+	wp_register_script('plugins',
+		get_template_directory_uri() . '/javascripts/plugins.js', '1.0', true, array('jquery') );
+	wp_enqueue_script('plugins');
+	
+	
+	// register and enqueue main.js site-wide javascript behaviors file
+	// it depends on jQuery and is loaded in the footer
+	wp_register_script('main',
+		get_template_directory_uri() . '/javascripts/main.js', '1.0', true, array('jquery') );
+	wp_enqueue_script('main');
+	
 	// Adds JavaScript to pages with the comment form to support
 	// sites with threaded comments (when in use).
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
  
+		
+	// Loads our main stylesheet.
+	wp_enqueue_style( 'keyfunctions-style', get_stylesheet_uri() );
+
+    
 } 
 add_action('wp_enqueue_scripts', 'keyfunctions_scripts_and_styles');
 

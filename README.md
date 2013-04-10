@@ -28,7 +28,7 @@
   <li>Dynamic Sidebar(s)</li>
   <li>Custom "more" Link</li>
   <li>Basic Pagination</li>
-  <li>Register and Enque Scripts &amp; Styles</li>
+  <li>Register and Enqueue Scripts &amp; Styles</li>
 </ol>
 <ul>
   <li>
@@ -166,34 +166,32 @@ add_filter('excerpt_more', 'new_excerpt_more');</code></pre>
 }?&gt;</code></pre>
 
 
-<h2>Register and Enque Scripts &amp; Styles</h2>
+<h2>Register and Enqueue Scripts &amp; Styles</h2>
 <pre><code>function keyfunctions_scripts_and_styles() {
-    if (!is_admin()) {
 
-		// register and enque modernizr script (in head)
-		// no depency specified
-		wp_register_script('modernizr',
-			get_template_directory_uri() . '/javascripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js', '2.6.2', false);
-		wp_enqueue_script('modernizr');
+	// register and Enqueue modernizr script (in head)
+	// no depency specified
+	wp_register_script('modernizr',
+		get_template_directory_uri() . '/javascripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js', '2.6.2', false);
+	wp_enqueue_script('modernizr');
+	
+	// register and Enqueue jQuery
+	wp_deregister_script('jquery');
+		wp_register_script('jquery', get_template_directory_uri() . '/javascripts/vendor/jquery-1.9.1.min.js', false, '1.9.1', true);
+	wp_enqueue_script('jquery');
+	
+	// register and Enqueue the plugins.js file 
+	// it depends on jQuery and is loaded in the footer
+	wp_register_script('plugins',
+		get_template_directory_uri() . '/javascripts/plugins.js', '1.0', true, array('jquery') );
+	wp_enqueue_script('plugins');
+	
+	// register and Enqueue main.js site-wide javascript behaviors file
+	// it depends on jQuery and is loaded in the footer
+	wp_register_script('script',
+		get_template_directory_uri() . '/javascripts/main.js', '1.0', true, array('jquery') );
+	wp_enqueue_script('script');
 		
-		// register and enque jQuery
-		wp_deregister_script('jquery');
-			wp_register_script('jquery', get_template_directory_uri() . '/javascripts/vendor/jquery-1.9.1.min.js', false, '1.9.1', true);
-		wp_enqueue_script('jquery');
-		
-		// register and enque the plugins.js file 
-		// it depends on jQuery and is loaded in the footer
-		wp_register_script('plugins',
-			get_template_directory_uri() . '/javascripts/plugins.js', '1.0', true, array('jquery') );
-		wp_enqueue_script('plugins');
-		
-		// register and enque main.js site-wide javascript behaviors file
-		// it depends on jQuery and is loaded in the footer
-		wp_register_script('script',
-			get_template_directory_uri() . '/javascripts/main.js', '1.0', true, array('jquery') );
-		wp_enqueue_script('script');
-		
-    }
     
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'keyfunctions-style', get_stylesheet_uri() );
